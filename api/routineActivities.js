@@ -14,8 +14,8 @@ routineActivitiesRouter.patch("/:routineActivityId/",  async (req, res, next) =>
     const { count, duration } = req.body;
     const id = req.params.routineActivityId;
     try {
-      const oldRoutineActivity = await getRoutineActivityById(id);
-      const newRoutine = await getRoutineById(oldRoutineActivity.routineId)
+      const oldRoutine = await getRoutineActivityById(id);
+      const newRoutine = await getRoutineById(oldRoutine.routineId)
       if(req.user.id != newRoutine.creatorId) {
         res.status(500).send(err)
       } else {
@@ -33,8 +33,8 @@ routineActivitiesRouter.patch("/:routineActivityId/",  async (req, res, next) =>
 routineActivitiesRouter.delete("/:routineActivityId/",  async (req, res, next) => {
   const id = req.params.routineActivityId;
   try {
-    const oldRoutineActivity = await getRoutineActivityById(id);
-    const newRoutine = await getRoutineById(oldRoutineActivity.routineId)
+    const oldRoutine = await getRoutineActivityById(id);
+    const newRoutine = await getRoutineById(oldRoutine.routineId)
     if(req.user.id != newRoutine.creatorId) {
       res.status(500).send(err)
     }

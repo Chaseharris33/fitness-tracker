@@ -54,11 +54,11 @@ async function createActivity({ name, description }){
 
 async function getAllActivities(){
   try{
-    const {rows: allActivities} = await client.query(`
+    const {rows: activities} = await client.query(`
     SELECT * FROM activities
     `, )
 
-    return allActivities;
+    return activities;
 
   }catch(error){
     throw error;

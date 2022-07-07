@@ -13,8 +13,8 @@ activitiesRouter.get("/:activityId/routines", async (req, res, next) => {
   const id  = req.params.activityId
   
   try {
-    const newActivity = await getPublicRoutinesByActivity({ id });
-    res.send(newActivity);
+    const activity = await getPublicRoutinesByActivity({id});
+    res.send(activity);
   } catch (error) {
     next(error);
   }
@@ -49,8 +49,8 @@ activitiesRouter.patch("/:activityId", async (req, res, next) => {
   const id  = req.params.activityId
 
   try {
-    const newActivity = await updateActivity({ id , name, description });
-    res.send(newActivity);
+    const activity = await updateActivity({ id , name, description });
+    res.send(activity);
   } catch (error) {
     next(error);
   }

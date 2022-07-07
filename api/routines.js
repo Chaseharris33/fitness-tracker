@@ -12,9 +12,9 @@ const {
 
 routinesRouter.get("/", async (req, res, next) => {
   try {
-    const allPublicRoutines = await getAllPublicRoutines();
+    const pRoutines = await getAllPublicRoutines();
 
-    res.send(allPublicRoutines);
+    res.send(pRoutines);
   } catch (error) {
     next(error);
   }
@@ -38,9 +38,9 @@ routinesRouter.patch("/:routineId", async (req, res, next) => {
   const id = req.params.routineId;
 
   try {
-    const newRoutine = await updateRoutine({ id, isPublic, name, goal });
+    const uRoutine = await updateRoutine({ id, isPublic, name, goal });
 
-    res.send(newRoutine);
+    res.send(uRoutine);
   } catch (error) {
     next(error);
   }
@@ -49,9 +49,9 @@ routinesRouter.patch("/:routineId", async (req, res, next) => {
 routinesRouter.delete("/:routineId", async (req, res, next) => {
   const id = req.params.routineId;
   try {
-    const newRoutine = await destroyRoutine(id);
+    const routine = await destroyRoutine(id);
 
-    res.send(newRoutine);
+    res.send(routine);
   } catch (error) {
     next(error);
   }
