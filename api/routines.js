@@ -2,13 +2,10 @@ const express = require("express");
 const routinesRouter = express.Router();
 
 const {
-  createRoutine,
-  getRoutineById,
   updateRoutine,
   destroyRoutine,
   getAllPublicRoutines,
   addActivityToRoutine,
-  getRoutineActivitiesByRoutine,
 } = require("../db");
 // POST, POST /routines/:routineId/activities, PATCH /routine_activities/:routineActivityIdm, DELETE /routine_activities/:routineActivityId 
 //(**) check creatorId === req.user.id userId
