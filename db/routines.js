@@ -49,7 +49,6 @@ async function getRoutinesWithoutActivities() {
 }
 
 async function getAllRoutines() {
-  console.log("start getallroutines");
   try {
     const { rows: allRoutines } = await client.query(`
     SELECT routines.*, users.username AS "creatorName" 
